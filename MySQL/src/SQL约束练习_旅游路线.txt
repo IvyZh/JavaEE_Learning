@@ -1,0 +1,59 @@
+# 项目介绍，用户可以选择多个旅游线路分类（情侣、亲子等等），每个旅游线路分类下面又分好多个旅游路线（马来西亚、泰国等等），用户可以对这些旅游路线进行收藏操作
+
+-- 创建用户表
+CREATE TABLE USER(
+id INT PRIMARY KEY AUTO_INCREMENT,
+NAME VARCHAR(20),
+PASSWORD VARCHAR(20)
+)
+
+-- 创建旅游线路分类表
+CREATE  TABLE category(
+cid INT PRIMARY KEY AUTO_INCREMENT,-- 旅游线路分类主键，自动增长
+NAME VARCHAR(20) NOT NULL UNIQUE -- 旅游线路分类名称非空，唯一，字符串 100
+)
+
+-- 创建旅游路线表
+CREATE  TABLE road(
+rid INT PRIMARY KEY AUTO_INCREMENT,
+NAME VARCHAR(20),
+price DOUBLE(5,2),
+cid INT,
+CONSTRAINT road_category_fk  FOREIGN KEY (cid) REFERENCES category(cid)
+)
+
+-- 创建用户和线路的中间表
+
+CREATE  TABLE user_road(
+id INT PRIMARY KEY AUTO_INCREMENT,
+uid INT,
+rid INT,
+CONSTRAINT user_id_fk  FOREIGN KEY (uid) REFERENCES USER(id),
+CONSTRAINT road_id_fk  FOREIGN KEY (rid) REFERENCES road(rid)
+)
+
+/*
+创建收藏表 tab_favorite
+rid 旅游线路 id，外键
+date 收藏时间
+uid 用户 id，外键
+rid 和 uid 不能重复，设置复合主键，同一个用户不能收藏同一个线路两次
+*/
+/*
+CREATE TABLE tab_favorite (
+	rid INT, -- 线路id
+	DATE DATETIME,
+	uid INT, -- 用户id
+	-- 创建复合主键
+	PRIMARY KEY(rid,uid), -- 联合主键
+	FOREIGN KEY (rid) REFERENCES tab_route(rid),
+	FOREIGN KEY(uid) REFERENCES tab_user(uid)
+);
+*/
+
+DROP TABLE USER;
+DROP TABLE category;
+DROP TABLE road;
+DROP TABLE user_road;
+
+

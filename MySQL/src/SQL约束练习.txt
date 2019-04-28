@@ -1,0 +1,63 @@
+CREATE TABLE emp (
+id INT PRIMARY KEY AUTO_INCREMENT,
+NAME VARCHAR(30),
+age INT,
+dep_name VARCHAR(30),
+dep_location VARCHAR(30)
+);
+-- 添加数据
+INSERT INTO emp (NAME, age, dep_name, dep_location) VALUES ('张三', 20, '研发部', '广州');
+INSERT INTO emp (NAME, age, dep_name, dep_location) VALUES ('李四', 21, '研发部', '广州');
+INSERT INTO emp (NAME, age, dep_name, dep_location) VALUES ('王五', 20, '研发部', '广州');
+INSERT INTO emp (NAME, age, dep_name, dep_location) VALUES ('老王', 20, '销售部', '深圳');
+INSERT INTO emp (NAME, age, dep_name, dep_location) VALUES ('大王', 22, '销售部', '深圳');
+INSERT INTO emp (NAME, age, dep_name, dep_location) VALUES ('小王', 18, '销售部', '深圳');
+
+-- 上面的emp表数据存在冗余问题，需要做表的拆分
+CREATE TABLE employee (
+id INT PRIMARY KEY AUTO_INCREMENT,
+NAME VARCHAR(30),
+age INT,
+dep_id INT
+);
+
+CREATE TABLE department (
+id INT PRIMARY KEY AUTO_INCREMENT,
+dep_name VARCHAR(30),
+dep_location VARCHAR(30)
+);
+SELECT * FROM employee;
+SELECT * FROM department;
+
+INSERT INTO employee (NAME, age, dep_id) VALUES ('张三', 20, 1);
+INSERT INTO employee (NAME, age, dep_id) VALUES ('李四', 21, 1);
+INSERT INTO employee (NAME, age, dep_id) VALUES ('王五', 20, 1);
+INSERT INTO employee (NAME, age, dep_id) VALUES ('老王', 20, 2);
+INSERT INTO employee (NAME, age, dep_id) VALUES ('大王', 22, 2);
+INSERT INTO employee (NAME, age, dep_id) VALUES ('小王', 18, 2);
+INSERT INTO department (dep_name, dep_location) VALUES ('研发部', '广州');
+INSERT INTO department (dep_name, dep_location) VALUES ('销售部', '深圳');
+
+
+
+-- 设置外键
+CREATE TABLE employee (
+id INT PRIMARY KEY AUTO_INCREMENT,
+NAME VARCHAR(30),
+age INT,
+dep_id INT,
+CONSTRAINT emp_dept_fk  FOREIGN KEY (dep_id) REFERENCES department(id)
+);
+
+-- 删除外键
+ALTER TABLE employee DROP FOREIGN KEY emp_dept_fk;
+
+-- 添加外键
+ALTER TABLE employee ADD CONSTRAINT emp_dept FOREIGN KEY (dep_id) REFERENCES department(id)
+
+-- 给外键添加级联更新
+ALTER TABLE employee ADD CONSTRAINT emp_dept_fk FOREIGN KEY (dep_id) REFERENCES department(id) ON UPDATE CASCADE;
+-- 给外键添加级联删除
+ALTER TABLE employee ADD CONSTRAINT emp_dept_fk FOREIGN KEY (dep_id) REFERENCES department(id) ON DELETE CASCADE;
+
+

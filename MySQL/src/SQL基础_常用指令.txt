@@ -1,0 +1,188 @@
+# 登陆
+mysql -uroot -p123456
+mysql -hip -uroot -p连接目标的密码
+mysql --host=ip --user=root --password=连接目标的密码
+
+# 退出
+exit
+quit
+
+# 查看所有数据库
+show databases;
+
+# DDL_操作数据库
+create database 数据库名称;
+create database if not exists 数据库名称; -- 创建数据库，判断不存在，再创建
+create database 数据库名称 character set 字符集名; -- 创建数据库，并指定字符集
+create database if not exists db4 character set gbk; --创建db4数据库，判断是否存在，并制定字符集为gbk
+show databases; -- 查看所有数据库;
+show create database 数据库名称; -- 查询某个数据库的字符集:查询某个数据库的创建语句
+alter database 数据库名称 character set 字符集名称; -- 修改数据库的字符集
+drop database 数据库名称; -- 删除数据库
+drop database if exists 数据库名称; -- 判断数据库存在，存在再删除
+select database();	-- 查询当前正在使用的数据库名称
+use 数据库名称; -- 使用数据库
+
+# DDL_操作表
+
+创建表：
+create table student(
+    id int,
+    name varchar(10),
+    age int,
+    score double(5,2),
+    birthday date, -- 只包含年月日，yyyy-MM-dd
+    fil datetime, -- 包含年月日时分秒	 yyyy-MM-dd HH:mm:ss
+    insert_time timestamp
+);
+
+create table 表名 like 被复制的表名;	  -- 复制表
+
+ show tables; -- 查询某个数据库中所有的表名称
+ show create table 表名; -- 查询某个表的字符集:查询某个表的创建语句
+ desc 表名; -- 查询表结构
+
+ U(Update):修改
+	1. 修改表名
+		alter table 表名 rename to 新的表名;
+	2. 修改表的字符集
+		alter table 表名 character set 字符集名称;
+	3. 添加一列
+		alter table 表名 add 列名 数据类型;
+	4. 修改列名称 类型
+		alter table 表名 change 列名 新列别 新数据类型;
+		alter table 表名 modify 列名 新数据类型;
+	5. 删除列
+		alter table 表名 drop 列名;
+ D(Delete):删除
+	* drop table 表名;
+	* drop table  if exists 表名 ;
+
+
+# DML_操作表（增删改）
+DML：增删改表中数据
+
+1. 添加数据：
+	* 语法：
+		* insert into 表名(列名1,列名2,...列名n) values(值1,值2,...值n);
+	* 注意：
+		1. 列名和值要一一对应。
+		2. 如果表名后，不定义列名，则默认给所有列添加值
+			insert into 表名 values(值1,值2,...值n);
+		3. 除了数字类型，其他类型需要使用引号(单双都可以)引起来
+
+		insert into student(id,name,age,score,birthday,fil,insert_time) values
+		(1,"zs",18,99.87,"1992-10-11","1992-10-11 03:44:55","1992-10-11 03:44:55");
+
+        insert into student(id,name,age,score,birthday,fil,insert_time) values
+		(2,"ls",18,99.87,"1992-10-11","1992-10-11 03:44:55","1992-10-11 03:44:55");
+
+2. 删除数据：
+	* 语法：
+		* delete from 表名 [where 条件]
+	* 注意：
+		1. 如果不加条件，则删除表中所有记录。
+		2. 如果要删除所有记录
+			1. delete from 表名; -- 不推荐使用。有多少条记录就会执行多少次删除操作
+			2. TRUNCATE TABLE 表名; -- 推荐使用，效率更高 先删除表，然后再创建一张一样的表。
+3. 修改数据：
+	* 语法：
+		* update 表名 set 列名1 = 值1, 列名2 = 值2,... [where 条件];
+	* 注意：
+		1. 如果不加任何条件，则会将表中所有记录全部修改。
+
+DQL：查询表中的记录
+
+* select * from 表名;
+
+1. 语法：
+	select
+		字段列表
+	from
+		表名列表
+	where
+		条件列表
+	group by
+		分组字段
+	having
+		分组之后的条件
+	order by
+		排序
+	limit
+		分页限定
+
+2. 基础查询
+	1. 多个字段的查询
+		select 字段名1，字段名2... from 表名；
+		* 注意：
+			* 如果查询所有字段，则可以使用*来替代字段列表。
+	2. 去除重复：
+		* distinct
+		* SELECT DISTINCT address FROM student3;
+	3. 计算列
+		* 一般可以使用四则运算计算一些列的值。（一般只会进行数值型的计算）
+		* ifnull(表达式1,表达式2)：null参与的运算，计算结果都为null
+			* 表达式1：哪个字段需要判断是否为null
+			* 如果该字段为null后的替换值。
+	4. 起别名：
+		* as：as也可以省略
+		SELECT math,english,(math+english) AS zf FROM student3;
+        SELECT math,english,(math+IFNULL(english,0)) AS zf FROM student3;
+        SELECT math,english,(math+IFNULL(english,0)) zf2 FROM student3;
+DQL_条件查询
+3. 条件查询
+	1. where子句后跟条件
+	2. 运算符
+		* > 、< 、<= 、>= 、= 、<>
+		* BETWEEN...AND
+		* IN( 集合)
+		* LIKE：模糊查询
+			* 占位符：
+				* _:单个任意字符
+				* %：多个任意字符
+		* IS NULL
+		* and  或 &&
+		* or  或 ||
+		* not  或 !
+1. 排序查询
+	* 语法：order by 子句
+		* order by 排序字段1 排序方式1 ，  排序字段2 排序方式2...
+
+	* 排序方式：
+		* ASC：升序，默认的。
+		* DESC：降序。
+
+	* 注意：
+		* 如果有多个排序条件，则当前边的条件值一样时，才会判断第二条件。
+
+2. 聚合函数：将一列数据作为一个整体，进行纵向的计算。
+	1. count：计算个数
+		1. 一般选择非空的列：主键
+		2. count(*)
+	2. max：计算最大值
+	3. min：计算最小值
+	4. sum：计算和
+	5. avg：计算平均值
+	* 注意：聚合函数的计算，排除null值。
+		解决方案：
+			1. 选择不包含非空的列进行计算
+			2. IFNULL函数
+3. 分组查询:
+	1. 语法：group by 分组字段；
+	2. 注意：
+		1. 分组之后查询的字段：分组字段、聚合函数
+		2. where 和 having 的区别？
+			1. where 在分组之前进行限定，如果不满足条件，则不参与分组。having在分组之后进行限定，如果不满足结果，则不会被查询出来
+			2. where 后不可以跟聚合函数，having可以进行聚合函数的判断。
+4. 分页查询
+	1. 语法：limit 开始的索引,每页查询的条数;
+	2. 公式：开始的索引 = （当前的页码 - 1） * 每页显示的条数
+		-- 每页显示3条记录
+
+		SELECT * FROM student LIMIT 0,3; -- 第1页
+
+		SELECT * FROM student LIMIT 3,3; -- 第2页
+
+		SELECT * FROM student LIMIT 6,3; -- 第3页
+
+	3. limit 是一个MySQL"方言"
