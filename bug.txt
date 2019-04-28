@@ -1,5 +1,5 @@
-div 出現異常了
-異常名稱：ArithmeticException
-異常原因：/ by zero
+div 出现异常了
+异常名称：ArithmeticException
+异常原因：/ by zero
 ----------------------
-本次運行一共出現1次異常
+本次运行一共出现 1 次异常

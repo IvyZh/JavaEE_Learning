@@ -32,11 +32,11 @@ public class CaculatorTest {
                 }catch (Exception e){
                     e.printStackTrace();
                     bugNum++;
-                    bufferedWriter.write(declaredMethod.getName()+" 出現異常了");
+                    bufferedWriter.write(declaredMethod.getName()+" 出现异常了");
                     bufferedWriter.newLine();
-                    bufferedWriter.write("異常名稱："+e.getCause().getClass().getSimpleName());
+                    bufferedWriter.write("异常名称："+e.getCause().getClass().getSimpleName());
                     bufferedWriter.newLine();
-                    bufferedWriter.write("異常原因："+e.getCause().getMessage());
+                    bufferedWriter.write("异常原因："+e.getCause().getMessage());
                     bufferedWriter.newLine();
                     bufferedWriter.write("----------------------");
                     bufferedWriter.newLine();
@@ -46,7 +46,7 @@ public class CaculatorTest {
 
         }
 
-        bufferedWriter.write("本次運行一共出現"+bugNum+"次異常");
+        bufferedWriter.write("本次运行一共出现 "+bugNum+" 次异常");
         bufferedWriter.flush();
         bufferedWriter.close();
 
