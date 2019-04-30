@@ -6,8 +6,10 @@
       <module fileurl="file://$PROJECT_DIR$/HTML_CSS/HTML_CSS.iml" filepath="$PROJECT_DIR$/HTML_CSS/HTML_CSS.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaEE_Learning.iml" filepath="$PROJECT_DIR$/JavaEE_Learning.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaSE/JavaSE.iml" filepath="$PROJECT_DIR$/JavaSE/JavaSE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaScript/JavaScript.iml" filepath="$PROJECT_DIR$/JavaScript/JavaScript.iml" />
       <module fileurl="file://$PROJECT_DIR$/MySQL/MySQL.iml" filepath="$PROJECT_DIR$/MySQL/MySQL.iml" />
       <module fileurl="file://$PROJECT_DIR$/TomcatIDEA/TomcatIDEA.iml" filepath="$PROJECT_DIR$/TomcatIDEA/TomcatIDEA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Xml/Xml.iml" filepath="$PROJECT_DIR$/Xml/Xml.iml" />
     </modules>
   </component>
 </project>
