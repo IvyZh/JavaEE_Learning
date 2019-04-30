@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css选择器</title>
+
+    <style>
+        /*id选择器*/
+        #divID{
+            color: red;
+        }
+        /*类选择器*/
+        .divClass{
+            color: green;
+        }
+        /*元素选择器*/
+        div{
+            color: pink;
+        }
+        /*并集选择器*/
+        p ,span{
+            color: red;
+        }
+        /*子选择器：筛选选择器1元素下的所有选择器2元素,选择 <div> 元素内部的所有 <p> 元素。*/
+        div p{
+            font-size: 44px;
+        }
+        /*父选择器：div>p  选择父元素为 <div> 元素的所有 <p> 元素。*/
+        div>span{
+            background: yellow;
+        }
+        /*属性选择器：选择元素名称，属性名=属性值的元素*/
+        input[type='text']{
+            border: red solid 1px;
+        }
+
+
+        .div2{
+            width: 200px;
+            height: 200px;
+            border: red solid 1px;
+            padding-top: 40px;
+            /*默认情况下内边距padding会影响整个盒子的大小*/
+            box-sizing: border-box;
+            /*设置盒子的属性，让width和height就是最终盒子的大小*/
+        }
+
+        .div3{
+            width: 100px;
+            height: 100px;
+            /*margin-top: 20px;*/
+            border: green solid 1px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div id="divID">didididididi</div>
+    <div class="divClass">didididididi</div>
+    <div>didididididi</div>
+
+    <hr/>
+
+    <p>ppppppp</p>
+    <span>spanspanspan</span>
+    <hr/>
+    <div>
+        <p>div --> p</p>
+        <p>div --> p</p>
+        <label><p>div --label--> p</p></label>
+    </div>
+    <hr/>
+    <div>
+        divdvdvdvdvdv
+        <span>div --> span</span>
+        <span>div --> span</span>
+        <p>div --> p</p>
+    </div>
+    <hr/>
+
+    <input type="text" placeholder="请输入用户名"><br>
+    <input type="password" placeholder="请输入密码">
+
+
+    <hr/>
+
+    <div class="div2">
+        <!--boxsize-->
+
+        <div class="div3"></div>
+
+    </div>
+</body>
+</html>
