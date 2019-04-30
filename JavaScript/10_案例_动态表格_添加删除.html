@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态表格</title>
+
+    <style>
+
+        table{
+            margin-top: 50px;
+        }
+
+        .opera{
+            margin-top: 50px;
+        }
+        tr{
+           text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div align="center" class="opera">
+
+        <input type="text" id="id"   placeholder="请输入编号"/>
+        <input type="text" id="name"  placeholder="请输入姓名"/>
+        <input type="text" id="gender" placeholder="请输入性别"/>
+        <input type="button" id="add" value="添加"/>
+    </div>
+
+    <table border="1px" align="center" width="50%" id="stu">
+        <caption>学生信息表</caption>
+        <tr >
+            <th>编号</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>操作</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>孙尚香</td>
+            <td>女</td>
+            <td><a href="javascript:void(0);" onclick="del(this)">删除</a></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>曹操</td>
+            <td>男</td>
+            <td><a href="javascript:void(0);"onclick="del(this)">删除</a></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>诸葛亮</td>
+            <td>男</td>
+            <td><a href="javascript:void(0);"onclick="del(this)">删除</a></td>
+        </tr>
+
+
+
+
+    </table>
+</body>
+<script>
+
+    function del(ele) {
+        // alert("delete");
+        var tr_ele = ele.parentNode.parentNode;
+        var table_ele = tr_ele.parentNode;
+        table_ele.removeChild(tr_ele);
+    }
+
+
+    document.getElementById("add").onclick = function (ev) {
+        var id_value = document.getElementById("id").value;
+        var name_value = document.getElementById("name").value;
+        var gender_value = document.getElementById("gender").value;
+        //alert(name_value);
+        var stu_table = document.getElementById("stu");
+        var tr = document.createElement("tr");
+        var td_id = document.createElement("td");
+        var td_name = document.createElement("td");
+        var td_gender = document.createElement("td");
+        var td_delete = document.createElement("td");
+        var node_id = document.createTextNode(id_value);
+        var node_name = document.createTextNode(name_value);
+        var node_gender = document.createTextNode(gender_value);
+
+
+        var del_a = document.createElement("a");
+        del_a.href = "javascript:void(0);";
+        del_a.setAttribute("onclick","del(this)");
+        // del_a.onclick = "del(this)";
+        var node_delete = document.createTextNode("删除");
+        del_a.appendChild(node_delete);
+
+
+
+        td_id.appendChild(node_id);
+        td_name.appendChild(node_name);
+        td_gender.appendChild(node_gender);
+        td_delete.appendChild(del_a);
+        tr.appendChild(td_id);
+        tr.appendChild(td_name);
+        tr.appendChild(td_gender);
+        tr.appendChild(td_delete);
+        stu_table.appendChild(tr);
+
+    }
+</script>
+</html>

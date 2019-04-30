@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态表格</title>
+
+    <style>
+
+        table{
+            margin-top: 50px;
+        }
+
+        tr{
+           text-align: center;
+        }
+
+        .out{
+            background-color: white;
+        }
+        .over{
+            background-color: pink;
+        }
+
+    </style>
+</head>
+<body>
+
+
+
+    <table border="1px" align="center" width="50%" id="stu">
+        <caption>学生信息表</caption>
+        <tr >
+            <th><input type="checkbox" class="cb"></th>
+            <th>编号</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>操作</th>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="cb"></td>
+            <td>1</td>
+            <td>孙尚香</td>
+            <td>女</td>
+            <td><a href="javascript:void(0);" onclick="del(this)">删除</a></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="cb"></td>
+            <td>2</td>
+            <td>曹操</td>
+            <td>男</td>
+            <td><a href="javascript:void(0);"onclick="del(this)">删除</a></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="cb"></td>
+            <td>3</td>
+            <td>诸葛亮</td>
+            <td>男</td>
+            <td><a href="javascript:void(0);"onclick="del(this)">删除</a></td>
+        </tr>
+
+
+
+    </table>
+
+    <div align="center" style="margin-top: 20px">
+        <input type="button" value="全选" id="selAll">
+        <input type="button" value="全不选" id="notSel">
+        <input type="button" value="反选" id="fanSel">
+
+    </div>
+
+</body>
+<script>
+    // 全选
+   var ele_selAll = document.getElementById("selAll");
+   ele_selAll.onclick = selAll;
+
+   function selAll() {
+       //alert("sel All")
+       var cbs = document.getElementsByClassName("cb");
+       for (var i = 0; i < cbs.length; i++) {
+           cbs[i].checked = true;
+       }
+   }
+
+    // 全不选
+    var ele_notSel = document.getElementById("notSel");
+    ele_notSel.onclick = notSel;
+
+    function notSel() {
+        var cbs = document.getElementsByClassName("cb");
+        for (var i = 0; i < cbs.length; i++) {
+            cbs[i].checked = false;
+        }
+    }
+
+
+    // 全选
+    var ele_fanSel = document.getElementById("fanSel");
+    ele_fanSel.onclick = fanSel;
+
+    function fanSel() {
+        var cbs = document.getElementsByClassName("cb");
+        for (var i = 0; i < cbs.length; i++) {
+            cbs[i].checked =  !cbs[i].checked;
+        }
+    }
+
+
+    var trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        trs[i].onmouseover = function () {
+            this.className = "over";
+        }
+        trs[i].onmouseout = function () {
+            this.className = "out";
+        }
+    }
+</script>
+</html>

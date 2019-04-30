@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js运算符</title>
+
+    <script>
+
+        var a1 = "1234";
+        var a2 = a1+6;
+        var a3 = +a1 +1;
+
+        document.write(a2+"<br/>");//12346
+        document.write(a3+"<br/>");//1235
+
+        var a4 = "abc";
+        var a5 = +a4+1;
+        document.write(a5+"<br/>");//NaN
+
+
+        var b1 = true;
+        var b2 = false;
+        var b3 = b1+5;
+        var b4 = b2+5;
+        document.write(b3+"<br/>");//6
+        document.write(b4+"<br/>");//5
+
+
+        document.write("<hr/>");
+
+        c1 = 9;// 不加var，则表示定义的是全局变量
+        var c2 = 9;//加var，表示定义的是局部变量
+
+
+    </script>
+
+
+
+</head>
+<body>
+
+</body>
+
+
+
+
+</html>

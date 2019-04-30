@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Windown</title>
+
+
+
+
+
+</head>
+<body>
+
+<input type="button" id="btnOpen" value="open baidu">
+<input type="button" id="btnClose" value="close self">
+<input type="button" id="btnCloseBaidu" value="close baidu">
+</body>
+<script>
+   // Window的方法
+    //alert("windown对象alert方法");
+    //var f1 =  confirm("确定删除吗？");
+    //document.write(f1);
+    //var username = prompt("请输入用户名");
+   //document.write(username);
+
+
+   var open1 = null;
+   document.getElementById("btnOpen").onclick = function (ev) {
+       open1 = open("http://www.baidu.com");//返回新的Window对象
+   }
+   document.getElementById("btnCloseBaidu").onclick = function (ev) {
+       if(open1!=null){
+           open1.close();
+       }
+   }
+
+   //与定时器有关的方式
+
+   var num = 10;
+    function count() {
+        if(num>0){
+            document.write(num--);
+        }
+
+    }
+    var id = window.setInterval(count,2000);
+
+    clearInterval(id);
+
+
+</script>
+</html>

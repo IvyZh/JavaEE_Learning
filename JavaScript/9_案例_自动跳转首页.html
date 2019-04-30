@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>History</title>
+
+
+
+
+
+</head>
+<body>
+    <div>
+        <span id="txt">5s 后跳到首页...</span>
+    </div>
+
+    <a href="javascript:void(0);" id="del">点我试试</a>
+
+<script>
+
+    var span = document.getElementById("txt");
+
+    var c = 5;
+    function count(){
+        span.innerHTML = c+"s 后跳到首页..."
+        c--;
+        if(c<0){
+            window.location.href = "http://www.baidu.com";
+        }
+    }
+    //window.setInterval(count,2000);
+
+
+    var del = document.getElementById("del");
+    del.onclick = function (ev) {
+        alert("点我干嘛！")
+    }
+</script>
+</html>

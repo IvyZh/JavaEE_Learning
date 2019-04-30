@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js对象</title>
+
+
+
+    <script>
+        // function 对象
+        function add(a,b,c) {
+            return a+b;
+        }
+
+      //  alert(add(3,4));
+
+        var f1 = function (a,b) {
+            return a-b;
+        }
+       // alert(f1(9,6));
+
+        function sum() {
+            var s = 0;
+            for (var i = 0; i < arguments.length; i++) {
+                s+=arguments[i];
+            }
+            return s;
+        }
+
+        // alert(sum(1,2,3));
+        // alert(sum(1,2,3,4));
+        // alert(sum(1,2,3,4,5));
+
+        document.write("<hr>")
+
+        // Array 对象
+        var a1 = new Array(1,2,3);// 元素列表
+        var a2 = new Array(5);//长度位5
+        var a3 = [4,5,62,12];
+
+        document.write(a1.length+"<br>")//3
+        document.write(a1+"<br>")//1,2,3
+        document.write(a2+"<br>")//,,,,
+        document.write(a3+"<br>")//4,5,62,12
+
+
+        a1 = a1.join("*");// join(参数):将数组中的元素按照指定的分隔符拼接为字符串
+        document.write(a1+"<br>")//1,2,3
+        a3.push(1,0,0)//  push()	向数组的末尾添加一个或更多元素，并返回新的长度。
+        document.write(a3+"<br>")//4,5,62,12,1,0,0
+
+
+        document.write("<hr>")
+
+        // Date
+        var d1 = new Date();
+        document.write(d1+"<br>")//Tue Apr 30 2019 22:36:30 GMT+0800 (中国标准时间)
+        document.write(d1.getTime()+"<br>")//1556634990341 , 获取毫秒值。返回当前如期对象描述的时间到1970年1月1日零点的毫秒值差
+        document.write(d1.toLocaleString()+"<br>")//2019/4/30 下午10:36:30  ,返回当前date对象对应的时间本地字符串格式
+
+        document.write("<hr>")
+
+        // Math
+        document.write(Math.random()+"<br>")//返回 0 ~ 1 之间的随机数。
+        document.write(Math.ceil(3.14)+"<br>")//4
+        document.write(Math.floor(3.14)+"<br>")//3
+        document.write(Math.round(3.14)+"<br>")//3
+
+        document.write("<hr>")
+
+        // RegExp
+        var reg  = /^[\d]{6,10}$/;//匹配6-10区间的数字密码
+        document.write(reg.test("123"));//false
+        document.write(reg.test("abc123"));//false
+        document.write(reg.test("1342323"));//true
+        document.write(reg.test("134232452343"));//false
+
+        document.write("<hr>")
+
+        // Gloable-encodeURI
+        document.write(encodeURI("传智播客")+"<br>");//%E4%BC%A0%E6%99%BA%E6%92%AD%E5%AE%A2
+        document.write(encodeURIComponent("传智播客")+"<br>");//%E4%BC%A0%E6%99%BA%E6%92%AD%E5%AE%A2
+        document.write(decodeURI("%E4%BC%A0%E6%99%BA%E6%92%AD%E5%AE%A2")+"<br>");//传智播客
+        document.write(decodeURIComponent("%E4%BC%A0%E6%99%BA%E6%92%AD%E5%AE%A2")+"<br>");//传智播客
+        document.write(encodeURI("http://www.传智播客.com")+"<br>");//http://www.%E4%BC%A0%E6%99%BA%E6%92%AD%E5%AE%A2.com
+        document.write(encodeURIComponent("http://www.传智播客.com")+"<br>");//http%3A%2F%2Fwww.%E4%BC%A0%E6%99%BA%E6%92%AD%E5%AE%A2.com
+
+        document.write("<hr>")
+        // Gloable-parseInt
+        document.write(parseInt("123")+"<br>");//123
+        document.write(parseInt("1234abc")+"<br>");//1234
+        document.write(parseInt("a123")+"<br>");//Nan
+
+        document.write("<hr>")
+        // Gloable-isNaN.判断一个值是否是NaN
+        document.write(isNaN("123")+"<br>");//false
+        document.write(isNaN(123)+"<br>");//false
+        document.write(isNaN(NaN)+"<br>");//true
+
+        //  eval():将JavaScript 字符串，并把它作为脚本代码来执行。
+        var js = "alert('hehe');";
+        eval(js);
+
+    </script>
+
+
+
+</head>
+<body>
+
+</body>
+
+
+
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js与html的结合方式</title>
+
+    <script>
+        // 方式一：内部JS
+        /*
+            1. number：数字。 整数/小数/NaN (not a number 一个不是数字的数字类型)
+            2. string：字符串。 字符串  "abc" "a" 'abc'
+            3. boolean: true和false
+            4. null：一个对象为空的占位符
+            5. undefined：未定义。如果一个变量没有给初始化值，则会被默认赋值为undefined
+        */
+
+        var b1 = 1;
+        var b2 = 3.14;
+        var b3 = NaN;
+        // 输出到页面上面
+        document.write(typeof (b1)+"----"+b1+"<br/>");
+        document.write(typeof (b2)+"----"+b2+"<br/>");
+        document.write(typeof (b3)+"----"+b3+"<br/>");
+
+        document.write("<hr/>");
+
+        var c1 = "abc";
+        var c2 = "d";
+        var c3 = 'efg';
+        document.write(typeof (c1)+"----"+c1+"<br/>");
+        document.write(typeof (c2)+"----"+c2+"<br/>");
+        document.write(typeof (c3)+"----"+c3+"<br/>");
+
+        document.write("<hr/>");
+
+        var d1 = false;
+        var d2 = true;
+        document.write(typeof (d1)+"----"+d1+"<br/>");
+        document.write(typeof (d2)+"----"+d2+"<br/>");
+
+        document.write("<hr/>");
+
+
+        var e1;
+        var e2 = null;
+        var e3 = new Date();
+        document.write(typeof (e1)+"----"+e1+"<br/>");//undefined
+        document.write(typeof (e2)+"----"+e2+"<br/>");//null  注意：object----null
+        document.write(typeof (e3)+"----"+e3+"<br/>");//Tue Apr 30 2019 22:11:36 GMT+0800 (中国标准时间)
+
+
+        document.write("<hr/>");
+
+
+    </script>
+
+
+
+</head>
+<body>
+
+</body>
+
+
+
+
+</html>
