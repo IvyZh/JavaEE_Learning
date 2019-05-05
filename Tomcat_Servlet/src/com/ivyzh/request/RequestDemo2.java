@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Enumeration;
 
+
 @WebServlet("/request2")
 public class RequestDemo2 extends HttpServlet {
 

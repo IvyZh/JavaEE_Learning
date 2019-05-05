@@ -155,7 +155,7 @@
                     </tr>
                     <tr>
                         <td class="td_left">验证码</td>
-                        <td class="td_right"><input type="text" name="checkcode"   id="checkcode"/>  <img src="img/verify_code.jpg" id="img_check"> </td>
+                        <td class="td_right"><input type="text" name="checkcode"   id="checkcode"/>  <img src="/demo/response4" id="img_check"> </td>
 
                     </tr>
 
@@ -180,4 +180,16 @@
 
 </div>
 </body>
+
+<script>
+
+    window.onload = function (ev) {
+        var img_check = document.getElementById("img_check");
+        img_check.onclick = function (ev1) {
+            img_check.src = "/demo/response4?time="+new Date().getTime();
+        }
+    }
+
+
+</script>
 </html>
