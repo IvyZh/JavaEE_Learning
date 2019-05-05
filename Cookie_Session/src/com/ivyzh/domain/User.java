@@ -5,6 +5,7 @@ import java.util.Date;
 public class User {
     private String username;
     private String password;
+    private String valicode;
     private String nickname;
     private String phone;
     private String email;
@@ -36,6 +37,14 @@ public class User {
                 ", birthday=" + birthday +
                 ", create_time=" + create_time +
                 '}';
+    }
+
+    public String getValicode() {
+        return valicode;
+    }
+
+    public void setValicode(String valicode) {
+        this.valicode = valicode;
     }
 
     public String getUsername() {

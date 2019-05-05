@@ -1,11 +1,14 @@
 package com.ivyzh.dao;
 
 import com.ivyzh.domain.User;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 public class UserDao {
 
 
     //    不知道为什么这个类会报错。先暂时放一下，报错信息
+    // 上面问题已经解决：是lib包要放在WEB-INF/lib目录下面，之前是放在工程目录src/libs下面了！
 
     /*
     Message Servlet execution threw an exception
@@ -40,25 +43,34 @@ public class UserDao {
     */
 
 
-//    //声明JDBCTemplate对象共用
-//    private JdbcTemplate template = new JdbcTemplate(DruidUtils.getDataSource());
-//    public User login(User user){
-//        System.out.println("UserDao login...");
-//        String sql = "select * from user where username = ? and password = ?";
-//        User u = template.queryForObject(sql,new BeanPropertyRowMapper<User>(User.class), user.getUsername(), user.getPassword());
-//        System.out.println("u:"+u);
-//        return u;
-//    }
+    //声明JDBCTemplate对象共用
+    private JdbcTemplate template = new JdbcTemplate(DruidUtils.getDataSource());
+    public User login(User user){
+        System.out.println("UserDao login...");
+        String sql = "select * from user where username = ? and password = ?";
 
-        public User login(User user){
-            System.out.println("UserDao login...");
-            String sql = "select * from user where username = ? and password = ?";
-            User u = new User();
-            u.setUsername("admin");
-            u.setPassword("123");
-            u.setNickname("ad");
+        try {
+            User u = template.queryForObject(sql,new BeanPropertyRowMapper<User>(User.class), user.getUsername(), user.getPassword());
+            System.out.println("u:"+u);
             return u;
-         }
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+
+
+
+    }
+
+//        public User login(User user){
+//            System.out.println("UserDao login...");
+//            String sql = "select * from user where username = ? and password = ?";
+//            User u = new User();
+//            u.setUsername("admin");
+//            u.setPassword("123");
+//            u.setNickname("ad");
+//            return u;
+//         }
 
 
 

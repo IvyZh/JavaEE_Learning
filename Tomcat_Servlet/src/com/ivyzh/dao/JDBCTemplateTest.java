@@ -1,7 +1,6 @@
 package com.ivyzh.dao;
 
 import com.ivyzh.domain.User;
-import org.junit.Test;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -10,8 +9,7 @@ import java.util.List;
 public class JDBCTemplateTest {
 
 
-    @Test
-    public void selectAll(){
+    public static void main(String[] args) {
         System.out.println("select all..");
         JdbcTemplate template = new JdbcTemplate(DruidUtils.getDataSource());
         String sql = "select * from user";
@@ -20,4 +18,5 @@ public class JDBCTemplateTest {
             System.out.println(user);
         }
     }
+
 }

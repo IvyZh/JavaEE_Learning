@@ -16,14 +16,30 @@ import java.util.Map;
 public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String username = req.getParameter("username");
-        String password = req.getParameter("password");
-        String valicodeUser = req.getParameter("valicode");
+//        String username = req.getParameter("username");
+//        String password = req.getParameter("password");
+//        String valicodeUser = req.getParameter("valicode");
+
+        Map<String, String[]> map = req.getParameterMap();
+        User userLogin = new User();
+        try {
+            BeanUtils.populate(userLogin,map);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+        // 简单模拟UserDao的操作
+        System.out.println(userLogin);
+
+
+
 
         //String valicode = (String) this.getServletContext().getAttribute("valicode");
         String valicode = (String) req.getSession().getAttribute("valicode");
 
 
+        String valicodeUser = userLogin.getValicode();
         System.out.println("用户输入valicodeUser:"+valicodeUser);
         System.out.println("系统生成valicode:"+valicode);
 
@@ -32,11 +48,12 @@ public class LoginServlet extends HttpServlet {
 //        解决：获取完，立马删除！
         req.getSession().removeAttribute("valicode");
 
-
+//
         if(valicodeUser.equalsIgnoreCase(valicode)){
             System.out.println("验证码正确");
             // 检验用户名和密码
-            if(username.equals("zhangsan")&&password.equals("123")){//模拟UserDao
+            if(userLogin.getUsername().equals("zhangsan")&&userLogin.getPassword().equals("123")){//这里简单模拟UserDao
+               // 具体可以参考tomcat_servlet里面的登陆
                 System.out.println("登陆成功");
                 // 登陆成功，使用重定向到success页面,使用session存储用户信息
                 User user = new User();
@@ -65,23 +82,16 @@ public class LoginServlet extends HttpServlet {
 
         /*
         本想用BeanUtils的封装包的，但是依旧报错：
+        // 问题已解决：导包导入两个，位置在WEB-INF/lib目录下面：commons-beanutils-1.8.0.jar 和 commons-logging-1.2 缺一不可！
+        // 同时add lib的时候选择，moudule
         java.lang.NoClassDefFoundError: org/apache/commons/beanutils/BeanUtils
         com.ivyzh.login.LoginServlet.doPost(LoginServlet.java:21)
         javax.servlet.http.HttpServlet.service(HttpServlet.java:661)
         javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
         org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
 */
-//        Map<String, String[]> map = req.getParameterMap();
-//        User user = new User();
-//        try {
-//            BeanUtils.populate(user,map);
-//        } catch (IllegalAccessException e) {
-//            e.printStackTrace();
-//        } catch (InvocationTargetException e) {
-//            e.printStackTrace();
-//        }
-//        // 简单模拟UserDao的操作
-//        System.out.println(user);
+
+
 
 
     }
