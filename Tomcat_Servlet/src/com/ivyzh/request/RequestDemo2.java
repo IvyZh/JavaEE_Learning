@@ -1,0 +1,42 @@
+package com.ivyzh.request;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.Enumeration;
+
+@WebServlet("/request2")
+public class RequestDemo2 extends HttpServlet {
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("防盗链演示...");
+        Enumeration<String> headerNames = req.getHeaderNames();
+        while (headerNames.hasMoreElements()){
+            String name = headerNames.nextElement();
+            String value = req.getHeader(name);
+            System.out.println(name+"---"+value);
+        }
+        // referer
+        String referer = req.getHeader("referer");
+
+        if(referer!=null){
+            resp.setContentType("text/html;charset=utf-8");
+            if(referer.contains("demo")){
+                resp.getWriter().write("播放电影...");
+            }else {
+                resp.getWriter().write("请去"+"<a href='http://127.0.0.1/demo/movie.html'>电影天堂网</a>"+"观看此电影...");
+            }
+        }
+
+
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+    }
+}
