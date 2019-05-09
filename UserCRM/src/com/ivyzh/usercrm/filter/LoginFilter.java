@@ -32,10 +32,10 @@ public class LoginFilter implements Filter {
 
             }else {//未登录，拦截提示
 
-                chain.doFilter(req, resp);//已经登录，放行
-
-//                httpRequest.setAttribute("msg","您尚未登录，请登录");
-//                httpRequest.getRequestDispatcher("/login.jsp").forward(httpRequest,resp);
+//                chain.doFilter(req, resp);//已经登录，放行
+//
+                httpRequest.setAttribute("msg","您尚未登录，请登录");
+                httpRequest.getRequestDispatcher("/login.jsp").forward(httpRequest,resp);
             }
         }
 

@@ -6,9 +6,7 @@ import com.ivyzh.usercrm.service.impl.UserServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
 
 @WebServlet("/loginServlet")
@@ -33,7 +31,12 @@ public class LoginServlet extends HttpServlet {
             UserService userService = new UserServiceImpl();
             User login = userService.login(user);
             if(login!=null){//登陆成功
-                req.getSession().setAttribute("user",login);//保存用户信息，跳转到用户列表
+
+                HttpSession session = req.getSession();
+                Cookie jsessionid = new Cookie("JSESSIONID", session.getId());
+                jsessionid.setMaxAge(10*60);//60s
+                resp.addCookie(jsessionid);
+                session.setAttribute("user",login);//保存用户信息，跳转到用户列表
                 resp.sendRedirect(req.getContextPath()+"/index.jsp");
             }else {
                 //重定向到login.jsp页面
