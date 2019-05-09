@@ -101,9 +101,9 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public boolean update(User user) {
-        String sql = "UPDATE USER SET gender = ?,age = ?,address=?,QQ=?,email=? WHERE id = ?";
+        String sql = "UPDATE USER SET username = ?,gender = ?,age = ?,address=?,QQ=?,email=? WHERE id = ?";
         //UPDATE USER SET  gender = 1,age = 18,address='福建',QQ='123213',email='12@1.com' WHERE id = 5;
-        int update = template.update(sql, user.getGender()
+        int update = template.update(sql,user.getUsername(), user.getGender()
                 , user.getAge(), user.getAddress(), user.getQQ(), user.getEmail(), user.getId());
         return update>0;
     }

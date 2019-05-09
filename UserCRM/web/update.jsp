@@ -22,7 +22,7 @@
             <input type="hidden" name="id" value="${user.id}">
           <div class="form-group">
             <label for="name">姓名：</label>
-            <input type="text" class="form-control" id="name" name="name"  readonly="readonly" placeholder="请输入姓名" value="${user.username}"/>
+            <input type="text" class="form-control" id="name" name="username"  placeholder="请输入姓名" value="${user.username}"/>
           </div>
 
           <div class="form-group">

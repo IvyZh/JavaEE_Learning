@@ -19,6 +19,9 @@ public class UpdateUserServlet extends HttpServlet {
         System.out.println("updateUserServlet....");
         req.setCharacterEncoding("utf-8");
         Map<String, String[]> map = req.getParameterMap();
+        String username = req.getParameter("username");
+        System.out.println("UpdateUserServlet username:"+username);
+
         User user = new User();
         try {
             BeanUtils.populate(user,map);
