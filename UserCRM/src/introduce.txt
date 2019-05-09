@@ -1,0 +1,44 @@
+技术选型：
+JSP EL JSTL
+Servlet MySql Tomcat
+Duird JDBCTemplate
+BeanUtils
+---------------------------------------------------------------------
+需要的jar包：
+mysql-connector-java-5.1.37-bin.jar  # MySQL数据库驱动
+druid-1.0.9.jar                      # druid连接池
+druid.properties                     # druid连接池的配置文件
+
+commons-logging-1.2.jar             # JdbcTemplate
+spring-beans-5.0.0.RELEASE.jar      # JdbcTemplate
+spring-core-5.0.0.RELEASE.jar       # JdbcTemplate
+spring-jdbc-5.0.0.RELEASE.jar       # JdbcTemplate
+spring-tx-5.0.0.RELEASE.jar         # JdbcTemplate
+
+javax.servlet.jsp.jstl.jar          # jstl
+jstl-impl.jar                       # jstl
+commons-beanutils-1.8.0.jar        # BeanUtils
+
+---------------------------------------------------------------------
+
+
+
+CREATE TABLE USER(-- 创建表
+	id INT PRIMARY KEY AUTO_INCREMENT,-- 用户id
+	username VARCHAR(20) NOT NULL UNIQUE,-- 用户名，非空且唯一
+	PASSWORD VARCHAR(20) NOT NULL,-- 密码，非空
+	phone VARCHAR(20),-- 手机号
+	email VARCHAR(20),-- 邮箱
+	gender INT,-- 性别,0:男，1：女
+	QQ VARCHAR(20),-- QQ
+	address VARCHAR(20),-- QQ
+	create_time TIMESTAMP-- 插入时间，如果将来不给这个字段赋值，或赋值为null，则默认使用当前的系统时间，来自动赋值
+);
+
+-- 插入数据
+
+INSERT INTO USER VALUES(NULL,"张三","123","13888888888","zs@163.com",0,"723723823","上海",NULL);
+INSERT INTO USER VALUES(NULL,"李四","123","13888888888","ls@163.com",0,"723723823","北京",NULL);
+INSERT INTO USER VALUES(NULL,"王五","123","13888888888","ww@163.com",0,"723723823","广州",NULL);
+INSERT INTO USER VALUES(NULL,"赵六","123","13888888888","zl@163.com",0,"723723823","苏州",NULL);
+INSERT INTO USER VALUES(NULL,"Tim","123","13888888888","tim@163.com",0,"723723823","杭州",NULL);

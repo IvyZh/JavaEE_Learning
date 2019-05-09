@@ -29,6 +29,7 @@
 
 <body>
 
+<%--action,应该用EL表达式的pageContex.request.contextPath：来获取虚拟目录--%>
 <form action="/cs/login" method="post">
     <table>
         <tr>
@@ -62,8 +63,13 @@
 
 </form>
 
-<div><%= request.getAttribute("valicode_error") ==null?"":request.getAttribute("valicode_error")%></div>
-<div><%= request.getAttribute("user_p_error") ==null?"":request.getAttribute("user_p_error")%></div>
+<%--<div><%= request.getAttribute("valicode_error") ==null?"":request.getAttribute("valicode_error")%></div>
+<div><%= request.getAttribute("user_p_error") ==null?"":request.getAttribute("user_p_error")%></div>--%>
+
+<%--改造之前的登陆代码，使用EL表达式--%>
+<div>${requestScope.valicode_error}></div>
+<div>${requestScope.user_p_error}></div>
+
 
 
 </body>

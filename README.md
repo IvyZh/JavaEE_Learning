@@ -1,6 +1,17 @@
 # JavaEE_Learning
 JavaEE的学习记录，参考黑马57期
 
+顺序：
+javase
+mysql
+html
+html_css
+javascript
+bootstrap
+xml
+tomcat_servlet
+cookie_session
+el_jstl  案例：用户管理系统UserCRM
 
 
 
