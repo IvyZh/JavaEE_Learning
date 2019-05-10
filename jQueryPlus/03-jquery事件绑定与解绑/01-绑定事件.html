@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+
+
+//        1. jquery标准的绑定方式
+//        * jq对象.事件方法(回调函数)；
+//        * 注：如果调用事件方法，不传递回调函数，则会触发浏览器默认行为。
+//              * 表单对象.submit();//让表单提交
+        $(function () {
+            $("#name").click(function () {
+               alert("click");
+            });
+
+        });
+
+
+    </script>
+</head>
+<body>
+<input id="name" type="text" value="绑定点击事件">
+</body>
+</html>

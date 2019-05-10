@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/jquery-migrate-1.0.0.js"></script>
+    <script type="text/javascript">
+
+        // 3. 事件切换：toggle
+        // * jq对象.toggle(fn1,fn2...)
+        // * 当单击jq对象对应的组件后，会执行fn1.第二次点击会执行fn2.....
+        // * 注意：1.9版本 .toggle() 方法删除,jQuery Migrate（迁移）插件可以恢复此功能。
+
+        $(function () {
+            var div = $("#myDiv");
+            $("#btn").toggle(function () {
+                div.css("backgroundColor","red");
+            },function () {
+                div.css("backgroundColor","green");
+
+            });
+
+        });
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+    <input id="btn" type="button" value="事件切换">
+    <div id="myDiv" style="width:300px;height:300px;background:pink">
+        点击按钮变成绿色，再次点击红色
+    </div>
+</body>
+</html>
+

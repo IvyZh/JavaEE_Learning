@@ -13,6 +13,32 @@ tomcat_servlet
 cookie_session
 el_jstl  案例：用户管理系统UserCRM
 Fileter_Listener
+jQuery
+
+
+
+
+---------------------------------------------------------------------
+```
+需要的jar包：
+mysql-connector-java-5.1.37-bin.jar  # MySQL数据库驱动
+druid-1.0.9.jar                      # druid连接池
+druid.properties                     # druid连接池的配置文件
+
+commons-logging-1.2.jar             # JdbcTemplate
+spring-beans-5.0.0.RELEASE.jar      # JdbcTemplate
+spring-core-5.0.0.RELEASE.jar       # JdbcTemplate
+spring-jdbc-5.0.0.RELEASE.jar       # JdbcTemplate
+spring-tx-5.0.0.RELEASE.jar         # JdbcTemplate
+
+javax.servlet.jsp.jstl.jar          # jstl
+jstl-impl.jar                       # jstl
+commons-beanutils-1.8.0.jar         # BeanUtils
+jquery-3.3.1.js                     # jQuery
+jquery-3.3.1.min.js                 # jQuery
+
+```
+---------------------------------------------------------------------
 
 
 

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>01-jQuery对象进行方法扩展</title>
+    <script src="../js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+     //    插件：增强JQuery的功能
+     //    1. 实现方式：
+        //      1. $.fn.extend(object) --对象
+         //    * 增强通过Jquery获取的对象的功能  $("#id")
+         //    2. $.extend(object)--全局
+         //    * 增强JQeury对象自身的功能  $/jQuery
+
+     
+        $.fn.extend({
+            checkAll:function () {
+                //alert("123");//定义了一个checkAll方法，所有jq对象都可以调用该方法
+                this.prop("checked",true);
+            },
+            unCheckAll:function () {
+
+                this.prop("checked",false);
+            },
+
+        });
+     
+        $(function () {
+           $("#btn-check").click(function () {
+               $("input[type='checkbox']").checkAll();
+           });
+
+            $("#btn-uncheck").click(function () {
+                $("input[type='checkbox']").unCheckAll();
+            });
+        });
+
+
+        
+    </script>
+</head>
+<body>
+<input id="btn-check" type="button" value="点击选中复选框"  >
+<input id="btn-uncheck" type="button" value="点击取消复选框选中"  >
+<br/>
+<input type="checkbox" value="football">足球
+<input type="checkbox" value="basketball">篮球
+<input type="checkbox" value="volleyball">排球
+
+</body>
+</html>
+
