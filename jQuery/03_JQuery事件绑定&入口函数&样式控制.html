@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery对象和JS对象区别与转换</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<h1>JQuery对象和JS对象区别与转换</h1>
+
+<!--
+选择器：筛选具有相似特征的元素(标签)
+1. 基本操作学习：
+	1. 事件绑定
+		//1.获取b1按钮
+        $("#b1").click(function(){
+            alert("abc");
+        });
+	2. 入口函数
+		 $(function () {
+
+		 });
+		 window.onload  和 $(function) 区别
+             * window.onload 只能定义一次,如果定义多次，后边的会将前边的覆盖掉
+             * $(function)可以定义多次的。
+	3. 样式控制：css方法
+		 // $("#div1").css("background-color","red");
+  		$("#div1").css("backgroundColor","pink");
+-->
+<div id="div1">div1......</div>
+<div id="div2">div2......</div>
+
+
+
+
+</body>
+
+<script>
+    // 1. 事件绑定
+
+    $("#div1").click(function () {
+        alert("click div1");
+    });
+
+    // 2. 入口函数
+    $(function () {
+       alert("入口函数1");
+    });
+    $(function () {
+        alert("入口函数2");
+    });
+    window.onload = function (ev) {
+        alert("window.onload");
+    }
+
+    // 3. 样式控制：css方法
+    $("#div1").css("backgroundColor","pink");
+    $("#div2").css("background-color","green");
+</script>
+
+
+</html>

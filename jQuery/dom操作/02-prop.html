@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>获取属性</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<script  src="../js/jquery-3.3.1.min.js"></script>
+	
+	
+	<style type="text/css">
+		 	div,span{
+			    width: 140px;
+			    height: 140px;
+			    margin: 20px;
+			    background: #9999CC;
+			    border: #000 1px solid;
+				float:left;
+			    font-size: 17px;
+			    font-family:Roman;
+			}
+			
+			div.mini{
+			    width: 30px;
+			    height: 30px;
+			    background: #CC66FF;
+			    border: #000 1px solid;
+			    font-size: 12px;
+			    font-family:Roman;
+			}
+			
+			div.visible{
+				display:none;
+			}
+	 </style>
+    
+	<script type="text/javascript">
+        // 2. 属性操作
+        // 1. 通用属性操作
+        // 1. attr(): 获取/设置元素的属性
+        // 2. removeAttr():删除属性
+        // 3. prop():获取/设置元素的属性
+        // 4. removeProp():删除属性
+        // * attr和prop区别？
+			// 1. 如果操作的是元素的固有属性，则建议使用prop
+        // 2. 如果操作的是元素自定义的属性，则建议使用attr
+        // 2. 对class属性操作
+        // 1. addClass():添加class属性值
+        // 2. removeClass():删除class属性值
+        // 3. toggleClass():切换class属性
+        // * toggleClass("one"):
+        // * 判断如果元素对象上存在class="one"，则将属性值one删除掉。  如果元素对象上不存在class="one"，则添加
+        // 4. css():
+
+        $(function () {
+            //获取北京节点的name属性值
+
+            //设置北京节点的name属性的值为dabeijing
+
+            //新增北京节点的discription属性 属性值是didu
+
+            //删除北京节点的name属性并检验name属性是否存在
+
+            //获得hobby的的选中状态
+
+			var attr = $("#bj").attr("name");
+			//alert(attr);
+			$("#bj").attr("name","dabeijing");
+            $("#bj").removeAttr("name");
+
+
+            var prop = $("#hobby").prop("checked");
+        	alert(prop);
+
+        });
+		
+	</script>
+	
+	
+	</head>
+	 
+	<body>
+				
+		 <ul>
+		 	 <li id="bj" name="beijing" xxx="yyy">北京</li>
+			 <li id="tj" name="tianjin">天津</li>
+		 </ul>
+		 <input type="checkbox" id="hobby" checked/>
+		 
+		
+	</body>
+	
+	
+   
+</html>
+
+
+

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery对象和JS对象区别与转换</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<h1>JQuery对象和JS对象区别与转换</h1>
+
+<!--
+JQuery对象和JS对象区别与转换
+1. JQuery对象在操作时，更加方便。
+2. JQuery对象和js对象方法不通用的.
+3. 两者相互转换
+    * jq -- > js : jq对象[索引] 或者 jq对象.get(索引)
+    * js -- > jq : $(js对象)
+-->
+<div id="div1">div1......</div>
+<div id="div2">div2......</div>
+
+
+
+
+</body>
+
+<script>
+    // 1. 通过js方式获取名叫div的所有html元素对象
+    var divs = document.getElementsByTagName("div");
+    for (var i = 0; i < divs.length; i++) {
+        //alert(divs[i].innerHTML);
+    }
+
+    // 2. 通过js方式获取名叫div的所有html元素对象
+    var div_jq = $("div");
+    //alert(div_jq.length);
+
+
+    // 3. 使用js方式将div的html换成bbb
+    for (var i = 0; i < divs.length; i++) {
+        divs[i].innerHTML = "bbb";
+    }
+
+    // 4. 使用jq方式将div的html换成ccc
+    div_jq.html("ccc");
+
+    // 5. js ---> jq
+    $(divs[0]).html("js ---> jq");
+
+    // 6. jq ---> js
+    div_jq[1].innerHTML= " jq ---> js";
+</script>
+
+
+</html>
