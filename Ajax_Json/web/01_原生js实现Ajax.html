@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原生js实现Ajax</title>
+
+    <script>
+
+        // 创建 XMLHttpRequest 对象的语法：
+        var xmlhttp;
+        if (window.XMLHttpRequest)
+        {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp=new XMLHttpRequest();
+        }
+        else
+        {// code for IE6, IE5
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp.open("GET","/servletDemo1?username=zs",true);
+        xmlhttp.send();
+
+        xmlhttp.onreadystatechange=function()
+        {
+            if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+                var txt =xmlhttp.responseText;
+                alert(txt);
+            }
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

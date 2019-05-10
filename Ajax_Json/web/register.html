@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+
+        $(function () {//入口函数
+            $("#username").blur(function () {
+
+               var val = $(this).val();
+                //alert("失去焦点，调用函数 "+val);
+               $.get( "checkUserNameServlet",{username:val},
+                function (data) {
+                    //alert(data);
+                    if(data.flag){
+                        $("#msg").css("color","green");
+                        $("#msg").html(data.msg);
+                    }else {
+                        $("#msg").css("color","red");
+                        $("#msg").html(data.msg);
+                    }
+
+                }//, "json"
+                 );
+            });
+
+
+            // $("#btn").click(function () {
+            //     alert("失去焦点，调用函数");
+            // });
+        });
+
+    </script>
+</head>
+<body>
+
+<input type="text" name="username" id="username"><span id="msg"></span>
+
+
+</body>
+</html>

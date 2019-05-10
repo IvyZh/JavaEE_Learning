@@ -14,6 +14,7 @@ cookie_session
 el_jstl  案例：用户管理系统UserCRM
 Fileter_Listener
 jQuery
+Ajax_Json
 
 
 
@@ -36,6 +37,9 @@ jstl-impl.jar                       # jstl
 commons-beanutils-1.8.0.jar         # BeanUtils
 jquery-3.3.1.js                     # jQuery
 jquery-3.3.1.min.js                 # jQuery
+jackson-annotations-2.2.3.jar       # JSON
+jackson-core-2.2.3.jar              # JSON
+jackson-databind-2.2.3.jar          # JSON
 
 ```
 ---------------------------------------------------------------------
