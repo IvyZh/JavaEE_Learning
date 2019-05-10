@@ -1,0 +1,70 @@
+http://localhost/redis/province.jsp
+
+导包：
+jQuery-->ajax
+el jstl
+durid 连接池
+JdbcTemplate
+mysql 驱动
+jackson json解析
+jedis 缓存
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+创建数据库的语句：
+DROP  TABLE Province;
+
+CREATE TABLE Province
+(
+id INT PRIMARY KEY AUTO_INCREMENT,-- 用户id
+AREA VARCHAR(20) NOT NULL,
+provinceName VARCHAR(50) NOT NULL
+)
+
+
+INSERT INTO Province VALUES(NULL,'华北','北京市');
+INSERT INTO Province VALUES(NULL,'华北','天津市');
+INSERT INTO Province VALUES(NULL,'华东','上海市');
+INSERT INTO Province VALUES(NULL,'西南','重庆市');
+INSERT INTO Province VALUES(NULL,'华北','河北省');
+INSERT INTO Province VALUES(NULL,'华北','山西省');
+INSERT INTO Province VALUES(NULL,'港澳台','台湾省');
+INSERT INTO Province VALUES(NULL,'东北','辽宁省');
+INSERT INTO Province VALUES(NULL,'东北','吉林省');
+INSERT INTO Province VALUES(NULL,'东北','黑龙江省');
+INSERT INTO Province VALUES(NULL,'华东','江苏省');
+INSERT INTO Province VALUES(NULL,'华东','浙江省');
+INSERT INTO Province VALUES(NULL,'华东','安徽省');
+INSERT INTO Province VALUES(NULL,'华东','福建省');
+INSERT INTO Province VALUES(NULL,'华东','江西省');
+INSERT INTO Province VALUES(NULL,'华东','山东省');
+INSERT INTO Province VALUES(NULL,'华中','河南省');
+INSERT INTO Province VALUES(NULL,'华中','湖北省');
+INSERT INTO Province VALUES(NULL,'华中','湖南省');
+INSERT INTO Province VALUES(NULL,'华南','广东省');
+INSERT INTO Province VALUES(NULL,'西北','甘肃省');
+INSERT INTO Province VALUES(NULL,'西南','四川省');
+INSERT INTO Province VALUES(NULL,'西南','贵州省');
+INSERT INTO Province VALUES(NULL,'华南','海南省');
+INSERT INTO Province VALUES(NULL,'西南','云南省');
+INSERT INTO Province VALUES(NULL,'西北','青海省');
+INSERT INTO Province VALUES(NULL,'西北','陕西省');
+INSERT INTO Province VALUES(NULL,'华南','广西壮族自治区');
+INSERT INTO Province VALUES(NULL,'西南','西藏自治区');
+INSERT INTO Province VALUES(NULL,'西北','宁夏回族自治区');
+INSERT INTO Province VALUES(NULL,'西北','新疆维吾尔自治区');
+INSERT INTO Province VALUES(NULL,'华北','内蒙古自治区');
+INSERT INTO Province VALUES(NULL,'港澳台','澳门特别行政区');
+INSERT INTO Province VALUES(NULL,'港澳台','香港特别行政区');

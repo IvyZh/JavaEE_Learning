@@ -15,6 +15,7 @@ el_jstl  案例：用户管理系统UserCRM
 Fileter_Listener
 jQuery
 Ajax_Json
+redis
 
 
 
@@ -40,6 +41,15 @@ jquery-3.3.1.min.js                 # jQuery
 jackson-annotations-2.2.3.jar       # JSON
 jackson-core-2.2.3.jar              # JSON
 jackson-databind-2.2.3.jar          # JSON
+commons-pool2-2.3.jar               # jedis
+jedis-2.7.0.jar                     # jedis
+jedis.properties                    # jedis
+
+
+
+其他工具：
+JedisPoolUtils     # jedis连接池对象，可以获取jedis连接对象
+Druid(Pool)Utils   # druid连接池对象，可以获取Connection连接对象,DataSource对象，还提供close方法
 
 ```
 ---------------------------------------------------------------------
